@@ -52,8 +52,15 @@ def extrair_dados(bot):
     while cont <8:
         cont += 1
         dia_da_semana = bot.find_element(f'//*[@id="wob_dp"]/div[{cont}]/div[1]', By.XPATH).text
-        print(f'Dia da semana: {dia_da_semana}')
+        temperatura_max = bot.find_element(f'//*[@id="wob_dp"]/div[1]/div[3]/div[{1}]/span[1]', By.XPATH).text
+        temperatura_min = bot.find_element(f'//*[@id="wob_dp"]/div[1]/div[3]/div[{2}]/span[1]', By.XPATH).text
+        print('Dia:', dia_da_semana)
+        print('Temperatura:')
+        print('Max=', temperatura_max + '|' + 'Min=',temperatura_min)
+        print("----------------------------------------------------------------")
         
+        
+
         
 
 
