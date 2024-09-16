@@ -50,13 +50,12 @@ def achou_campo(bot):
     try:
 
         
-        campo_cpf = bot.find_element('#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input', by=By.CSS_SELECTOR)
+        campo_cpf = bot.find_element('#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input', by=By.ID)
         
         if campo_cpf:
-            elemento_select = element_as_select(campo_cpf)
             print("Campo CPF encontrado.")
-            elemento_select.click()
-            elemento_select.send_keys('123456789')  # Substitua pelo valor correto
+            campo_cpf.click()
+            print("clicou")  # Substitua pelo valor correto
         else:
             print("Campo CPF não encontrado.")
     except Exception as e:
