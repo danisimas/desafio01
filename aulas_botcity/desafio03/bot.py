@@ -28,7 +28,7 @@ from botcity.core import DesktopBot
 from botcity.maestro import *
 
 import json
-from PIL import image 
+from PIL import Image
 
 
 # Disable errors if we are not connected to Maestro
@@ -84,18 +84,14 @@ def main():
     bot = DesktopBot()
 
     products = read_json_file('caminho_para_seu_arquivo.json')
-    bot.start()
+
+    bot.execute(r"C:\Program Files\Fakturama2\Fakturama.exe")
+
+
     for product in products:
         fill_product_form(bot, product)
-    bot.stop()
+    bot.close()
 
-
-    # Uncomment to mark this task as finished on BotMaestro
-    # maestro.finish_task(
-    #     task_id=execution.task_id,
-    #     status=AutomationTaskFinishStatus.SUCCESS,
-    #     message="Task Finished OK."
-    # )
 
 def not_found(label):
     print(f"Element not found: {label}")
