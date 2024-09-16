@@ -1,5 +1,6 @@
 # Importações necessárias
 from botcity.web import WebBot, Browser, By
+from botcity.web.util import element_as_select
 from webdriver_manager.chrome import ChromeDriverManager
 
 # Função para configurar o navegador: maximizar e entrar em tela cheia
@@ -42,28 +43,25 @@ def voltar_para_o_contexto_principal(bot):
 
 
 
-# def achou_campo(bot):
-#     bot.wait(2000)  # Aumenta o tempo de espera
-#     print("Tentando localizar o campo CPF.")
+def achou_campo(bot):
+    bot.wait(4000)  # Aumenta o tempo de espera
+    print("Tentando localizar o campo CPF.")
     
-#     try:
-#         # Procurando o campo de CPF dentro do iframe
-#         campo_cpf = bot.find_element('#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input', by=By.ID)
+    try:
+
         
-#         if campo_cpf:
-#             print("Campo CPF encontrado.")
-#             campo_cpf.click()
-#             campo_cpf.send_keys('123456789')  # Substitua pelo valor correto
-#         else:
-#             print("Campo CPF não encontrado.")
-#     except Exception as e:
-#         print(f"Erro ao localizar o campo: {e}")
+        campo_cpf = bot.find_element('#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input', by=By.CSS_SELECTOR)
+        
+        if campo_cpf:
+            elemento_select = element_as_select(campo_cpf)
+            print("Campo CPF encontrado.")
+            elemento_select.click()
+            elemento_select.send_keys('123456789')  # Substitua pelo valor correto
+        else:
+            print("Campo CPF não encontrado.")
+    except Exception as e:
+        print(f"Erro ao localizar o campo: {e}")
 
-
-def listar_elementos_dentro_do_iframe(bot):
-    elementos = bot.driver.find_elements(By.XPATH, "//*")
-    for elemento in elementos:
-        print(elemento.tag_name, elemento.get_attribute('id'), elemento.get_attribute('name'))
 
 
 
@@ -104,8 +102,10 @@ def main():
     bot.wait(3000)
 
     entrar_no_iframe(bot)
-
     achou_campo(bot)
+
+
+    #achou_campo(bot)
 
     #------------------------------------------------------------------------------
 
