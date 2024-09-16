@@ -32,6 +32,9 @@ def entrar_no_iframe(bot):
         bot.enter_iframe(iframe)
         # Mude o contexto para o iframe
         print("Entrou no iframe com sucesso.")
+
+        bot.find_element(selector='#form1',by=By.ID)
+        print("Localizou o formulário no iframe.")
     except Exception as e:
         print("Erro ao entrar no iframe.", e)
 
@@ -44,14 +47,10 @@ def voltar_para_o_contexto_principal(bot):
 
 
 def achou_campo(bot):
-    bot.wait(4000)  # Aumenta o tempo de espera
     print("Tentando localizar o campo CPF.")
-    
+    bot.wait(6000) 
     try:
-
-        
-        campo_cpf = bot.find_element('#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input', by=By.ID)
-        
+        campo_cpf = bot.find_element(selector='#form1\:j_id6_body > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(2) > input',by=By.CSS_SELECTOR)
         if campo_cpf:
             print("Campo CPF encontrado.")
             campo_cpf.click()
@@ -66,7 +65,6 @@ def achou_campo(bot):
 
 
 def main():
-    # Criar a instância do WebBot
     bot = WebBot()
 
     # Configurar para não rodar em headless mode (abrir interface gráfica)
