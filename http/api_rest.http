@@ -4,10 +4,10 @@ Content-Type: application/json
 // OBS: É necessário pular uma linha, quando existir um corpo (body) 
 
 {
-    "nome": "Gabriel Pereira Goncalves",
-    "email": "gabriel@gmail.com",
+    "nome": "Daniele Simas",
+    "email": "danisimas@gmail.com",
     "senha": "123",
-    "login": "gabriel"
+    "login": "dany8264"
 }
 // Utiliza-se obrigatoriamente no início da linha os simbolos: ###
 // para separar uma requisção da outra. 
@@ -19,9 +19,9 @@ Content-Type: application/json
 
 {
     "nome": "Bruno Pereira Goncalves",
-    "login": "bruno",
+    "email": "bruno@gmail.com",
     "senha": "111",
-    "email": "bruno@gmail.com"
+    "Login": "bruno"
 }
 // Utiliza-se obrigatoriamente no início da linha os simbolos: ###
 // para separar uma requisção da outra. 
