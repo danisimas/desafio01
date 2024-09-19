@@ -5,9 +5,9 @@ Content-Type: application/json
 
 {
     "nome": "Gabriel Pereira Goncalves",
-    "login": "gabriel",
+    "email": "gabriel@gmail.com",
     "senha": "123",
-    "email": "gabriel@gmail.com"
+    "login": "gabriel"
 }
 // Utiliza-se obrigatoriamente no início da linha os simbolos: ###
 // para separar uma requisção da outra. 
