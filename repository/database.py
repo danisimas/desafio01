@@ -1,4 +1,5 @@
-import mysql.connector 
+import mysql.connector
+
 
 def criar_db():
     try:
@@ -8,7 +9,7 @@ def criar_db():
             port='3306',
             user='root',
             password='',
-            database='banco_zl'
+            database='banco'
         )
     except Exception as ex:
         print(f'Ocorreu erro na conexao com o Banco de Dados: {ex}')
